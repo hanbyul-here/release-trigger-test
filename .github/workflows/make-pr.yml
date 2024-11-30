@@ -1,0 +1,10 @@
+name: Test repository dispatch
+on:
+  repository_dispatch:
+    types: [update-version]
+jobs:
+  myEvent:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: echo ${{ github.event.client_payload.VERSION_NUMBER }}
