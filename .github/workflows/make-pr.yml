@@ -7,4 +7,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.client_payload.ref }}
       - run: echo ${{ github.event.client_payload.VERSION_NUMBER }}
